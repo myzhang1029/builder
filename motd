@@ -1,0 +1,10 @@
+**************************
+* AREDN Build Container
+* 
+* Reminders:
+*	- 'git pull' to pull the latest commits from github
+*	- edit config.mk and add your callsign and optionally change -j3
+*	- vi and nano are available for editing
+*	- sudo is available (password is: aredn)
+*
+**************************

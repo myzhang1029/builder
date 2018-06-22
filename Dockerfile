@@ -38,8 +38,12 @@ RUN useradd -m ${AREDNUSER} && echo "${AREDNUSER}:${AREDNUSER}" | chpasswd && ad
 RUN mkdir -p ${AREDNDIR} \
     && chown ${AREDNUSER}:${AREDNUSER} ${AREDNDIR}
 
+COPY motd /etc/motd
+RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/issue && cat /etc/motd' >> /etc/bash.bashrc
+
 USER ${AREDNUSER}
 WORKDIR ${AREDNDIR}
 RUN git clone http://github.com/aredn/aredn_ar71xx
 WORKDIR ${AREDNDIR}/aredn_ar71xx
+
 
