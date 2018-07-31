@@ -4,7 +4,7 @@
 
 FROM ubuntu:xenial
 MAINTAINER dman776@gmail.com
-ENV IMAGE=aredn/builder \
+ENV IMAGE=arednmesh/builder \
     AREDNUSER=aredn \
     AREDNDIR=/opt/aredn
 
@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     libxml-perl \
     flex \
+    curl \
     wget \
     gettext \
     quilt \
