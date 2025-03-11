@@ -2,8 +2,8 @@
 # aredn/builder
 #
 
-FROM ubuntu:xenial
-MAINTAINER dman776@gmail.com
+FROM ubuntu:noble
+MAINTAINER me@maiyun.me
 ENV IMAGE=arednmesh/builder \
     AREDNUSER=aredn \
     AREDNDIR=/opt/aredn
@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     shellcheck \
     lua5.1 \
-    vim-tiny \
+    vim \
     nano \
     bc \
     htop \
@@ -44,7 +44,5 @@ RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/issue && cat /etc/motd' >
 
 USER ${AREDNUSER}
 WORKDIR ${AREDNDIR}
-RUN git clone http://github.com/aredn/aredn_ar71xx
-WORKDIR ${AREDNDIR}/aredn_ar71xx
-
-
+RUN git clone http://github.com/aredn/aredn.git
+WORKDIR ${AREDNDIR}/aredn
