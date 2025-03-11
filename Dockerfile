@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
     flex \
     curl \
     wget \
+    file \
     gettext \
     quilt \
     python3 \
