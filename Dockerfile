@@ -37,6 +37,7 @@ RUN apt-get update && apt-get install -y \
     time
 
 RUN useradd -m ${AREDNUSER} && echo "${AREDNUSER}:${AREDNUSER}" | chpasswd && adduser ${AREDNUSER} sudo
+RUN echo "${AREDNUSER} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 RUN mkdir -p ${AREDNDIR} \
     && chown ${AREDNUSER}:${AREDNUSER} ${AREDNDIR}
