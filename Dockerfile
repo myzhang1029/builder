@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
     quilt \
     python3 \
     python-is-python3 \
+    python3-setuptools \
     libssl-dev \
     shellcheck \
     lua5.1 \
