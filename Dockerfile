@@ -8,9 +8,10 @@ ENV IMAGE=arednmesh/builder \
     AREDNUSER=aredn \
     AREDNDIR=/opt/aredn
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y \
     git \
-    subversion \
     build-essential \
     libncurses5-dev \
     zlib1g-dev \
@@ -36,6 +37,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     rsync \
     time
+RUN apt-get clean
 
 RUN useradd -m ${AREDNUSER} && echo "${AREDNUSER}:${AREDNUSER}" | chpasswd && adduser ${AREDNUSER} sudo
 RUN echo "${AREDNUSER} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
@@ -48,5 +50,5 @@ RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/issue && cat /etc/motd' >
 
 USER ${AREDNUSER}
 WORKDIR ${AREDNDIR}
-RUN git clone http://github.com/aredn/aredn.git
+RUN git clone http://github.com/myzhang1029/aredn.git
 WORKDIR ${AREDNDIR}/aredn
